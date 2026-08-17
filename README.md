@@ -1,122 +1,199 @@
-# FocusFlow Pomodoro Timer
+<div align="center">
+  <img src="focusflow_logo.svg" alt="FocusFlow logo" width="112">
+  <h1>FocusFlow</h1>
+  <p><strong>A calm, focused Pomodoro workspace for Windows.</strong></p>
+  <p>Plan one meaningful task, protect your attention, and build a clear record of your progress.</p>
 
-FocusFlow is a Windows desktop Pomodoro timer with task-specific durations, task planning, daily progress metrics, persistent local history, and an end-of-session musical chime.
+  <p>
+    <a href="https://github.com/jasimuddinevan/time-tracker-for-pc/releases/download/windows-apps/FocusFlowSetup.exe"><strong>Download FocusFlow for Windows</strong></a>
+    &nbsp; · &nbsp;
+    <a href="https://github.com/jasimuddinevan/time-tracker-for-pc">View source</a>
+    &nbsp; · &nbsp;
+    <a href="https://github.com/jasimuddinevan/time-tracker-for-pc/issues">Report an issue</a>
+  </p>
 
-## Launch
+  <p>
+    <img src="https://img.shields.io/badge/platform-Windows%2011-5b2be0?style=flat-square" alt="Windows 11">
+    <img src="https://img.shields.io/badge/license-MIT-2f855a?style=flat-square" alt="MIT License">
+    <img src="https://img.shields.io/badge/mode-offline--first-475569?style=flat-square" alt="Offline first">
+  </p>
+</div>
 
-For distribution, run **FocusFlowSetup.exe**. Its setup window installs FocusFlow for the current Windows account, optionally creates Desktop and Start Menu shortcuts, and does not require administrator permission. The installer also registers FocusFlow under **Windows Settings → Apps → Installed apps**, creates a **Start Menu → FocusFlow → Uninstall FocusFlow** shortcut, and includes a proper per-user uninstaller.
+## What is FocusFlow?
 
-The uninstaller asks whether to keep or remove local FocusFlow data. Keeping data preserves tasks, settings, session history, and the saved name for a future reinstall. Removing data deletes the local `%LOCALAPPDATA%\\FocusFlow` folder as well as the application files and shortcuts.
+FocusFlow is an offline-first Pomodoro timer and personal productivity workspace for Windows. It combines task planning, focused timing, session history, progress summaries, analytics, and calendar review in one quiet interface.
 
-On the first launch, FocusFlow says **“Hi there, welcome!”**, asks **“What should we call you?”**, and then displays **“Thank you, [name]!”** before opening the Dashboard. The name is stored locally, so returning users go directly to their workspace without seeing onboarding again.
+The application is intentionally local. Your tasks, session history, settings, saved name, and onboarding state remain on your computer, so FocusFlow does not require an account or a permanent internet connection for its core workflow.
 
-During development, double-click **Run FocusFlow.bat**. The launcher uses the Python runtime detected on this computer. You can also run `focusflow.py` with Python 3.11 or later.
+> **The idea is simple:** choose one task, give it a defined amount of time, and finish the next small step.
 
-## Navigation and main workflow
+## Download and install
 
-The top navigation bar provides seven views: **Dashboard**, **Tasks**, **History**, **Analytics**, **Calendar**, **Settings**, and **About & Support**. Dashboard remains the fastest way to work, combining the task list, timer, and today’s progress in one place.
+The fastest way to get started is to download the installer:
 
-Add a task from the left panel, choose the planned number of sessions, and set the focus duration for that task. Select the task and choose **Start selected** or press **Start** in the center panel. The timer can be paused, resumed, reset, or skipped. A completed focus session is saved automatically and included in the Today summary.
+**[Download FocusFlowSetup.exe](https://github.com/jasimuddinevan/time-tracker-for-pc/releases/download/windows-apps/FocusFlowSetup.exe)**
 
-The **Tasks** view provides a larger task library and quick links back to the dashboard. **History** shows all completed focus and break sessions and includes an **Export CSV** button for backup or analysis. **Analytics** turns completed focus sessions into daily focus-minute bars, focus-by-task charts, total minutes, session counts, average session length, and best-day metrics for a 7-, 14-, or 30-day window. **Calendar** provides month navigation, day markers for completed sessions, daily summaries, task search, and focus/break filters. **Settings** summarizes the active theme, timer defaults, and completion sound preferences. **About & Support** introduces the developer and provides direct links to support the project and view the developer’s public links.
+Run the installer and follow the short setup flow. FocusFlow installs for the current Windows account without requiring administrator permission. The setup can create Desktop and Start Menu shortcuts and registers the application in **Windows Settings → Apps → Installed apps**.
 
-After a focus session, FocusFlow moves into a short break. After the configured number of sessions, it uses a long break instead. When the break ends, the app returns to focus mode.
+On the first launch, FocusFlow welcomes the user, asks for a name, and then opens a personalized Dashboard greeting such as **“Good morning, Aisha!”**. Returning users go directly to their workspace.
 
-## Appearance and settings
+### Uninstalling FocusFlow
 
-FocusFlow opens in a polished **light theme** by default, with a soft lavender accent, clean cards, and high-contrast timer controls. Use the **Dark mode** button in the top-right header to switch themes. The selected theme is saved automatically and restored the next time the app starts.
+FocusFlow includes a proper Windows uninstaller. It is available from **Settings → Apps → Installed apps → FocusFlow** and from **Start Menu → FocusFlow → Uninstall FocusFlow**.
 
-Use **Settings** to change default focus duration, short break duration, long break duration, and the number of focus sessions before a long break. Completion music can be enabled or disabled. You can also select a custom `.wav` file; if none is selected, FocusFlow plays a built-in ascending chime through Windows.
+During uninstall, FocusFlow clearly asks whether local user data should be preserved. Keeping data retains tasks, settings, history, and the saved name for a future reinstall. Selecting removal deletes the local FocusFlow data after the application closes.
 
-## Data and privacy
+## The FocusFlow workflow
 
-Tasks, settings, and session history are stored locally in:
+| Step | What happens |
+|---|---|
+| **1. Choose** | Add a task and decide how many focus sessions it needs. |
+| **2. Plan** | Set a task-specific focus duration, priority, status, and optional due date. |
+| **3. Focus** | Start the timer, pause when needed, or skip to the next mode. |
+| **4. Recover** | Resume an unfinished session after an unexpected close or restart. |
+| **5. Review** | Use History, Analytics, and Calendar to understand your focus rhythm. |
 
-`%LOCALAPPDATA%\FocusFlow\focusflow.db`
+## Features
 
-No network connection or account is required. The database is created automatically on first launch.
+### A timer that follows the work
 
-## Professional workflow features
+FocusFlow supports task-specific focus durations, configurable short and long breaks, planned session counts, accurate elapsed wall-clock timing, pause and resume behavior, reset and skip controls, and session recovery after restart.
 
-FocusFlow uses elapsed wall-clock timing, so the countdown remains accurate if the window is minimized or the computer is temporarily busy. If the application closes while a session is active or paused, the next launch offers to resume the unfinished session.
+When a focus session ends, the app can play a built-in three-note ascending **“ting ting ting”** chime, play a custom WAV file, show a Windows toast notification, and move into the appropriate break mode.
 
-Tasks can be edited after creation. Each task supports a status, priority, due date, planned session count, and individual focus duration. Starting a task marks it **In progress**; pausing marks it **Paused**; completing all planned sessions marks it **Completed**. When creating a task, pressing **Enter** opens a planning dialog where you can set the focus duration and choose **Run now** or **Later**. **Run now** is selected by default, and pressing **Enter** again confirms the action.
+### Task planning without friction
 
-When a session ends, FocusFlow can play the configured three-note completion chime, use the Windows alert sound, and display a true Windows corner toast notification. Music, alert sound, toast notifications, and system-tray support can be controlled from Settings.
+Press `Enter` in a task-entry field to open the planning dialog. Choose the focus duration and select either **Run now** or **Later**. **Run now** is selected by default, and pressing `Enter` again confirms the action.
 
-FocusFlow can continue running in the Windows system tray. Use **Minimize** to hide the main window. The tray menu provides Open FocusFlow, Start / Resume, Pause, and Exit actions.
+Tasks can be edited after creation. Each task supports a title, planned sessions, individual focus minutes, priority, status, and due date. Starting a task marks it in progress; completing its planned sessions marks it complete.
 
-### Keyboard shortcuts
+### A clear record of progress
 
-FocusFlow keeps single-key timer controls inactive while you are typing in a text or numeric field, so task entry remains predictable.
+FocusFlow turns completed sessions into useful local history rather than leaving progress as a vague feeling.
+
+| View | Purpose |
+|---|---|
+| **Dashboard** | Select a task, run the timer, and see today’s progress. |
+| **Tasks** | Manage the task library and edit task details. |
+| **History** | Review completed focus and break sessions and export CSV data. |
+| **Analytics** | Explore daily focus minutes, task charts, totals, averages, and best days. |
+| **Calendar** | Browse focus activity by month, day, task, and session type. |
+| **Settings** | Configure timer defaults, sound, notifications, theme, tray behavior, and shortcuts. |
+| **About & Support** | Learn about the developer and support the project. |
+
+### A polished Windows interface
+
+The current interface is built with a custom PySide6 visual layer. It uses a light theme by default, a dark-mode alternative, soft lavender accents, glass-like cards, a square primary window, rounded inner surfaces, custom navigation, a branded icon, and a system-tray experience.
+
+Light-mode Calendar and Analytics views use dedicated palettes to avoid dark color bleed. Task selection uses a clean filled state without the old focus-outline border.
+
+### System integration
+
+FocusFlow supports Windows toast notifications, a system-tray menu, minimize-to-tray behavior, taskbar and tray branding, and keyboard-first control. The app remains fully usable without an internet connection.
+
+## Keyboard shortcuts
+
+Single-key timer commands are disabled while typing in a text, numeric, or combo-box field, so task entry remains predictable.
 
 | Shortcut | Action |
 |---|---|
-| Space | Start or pause the current timer |
-| R | Reset the current timer |
-| S | Skip the current mode |
-| Ctrl+N | Open Tasks and focus the new-task field |
-| Ctrl+E | Edit the selected task |
-| Ctrl+Shift+S | Start the selected task |
-| Ctrl+Shift+T | Toggle light and dark mode |
-| Ctrl+Shift+M | Minimize FocusFlow |
-| Ctrl+, | Open timer settings |
-| F1 | Open the in-app shortcut reference |
-| F5 | Refresh tasks, history, analytics, and calendar |
-| Ctrl+1 | Dashboard |
-| Ctrl+2 | Tasks |
-| Ctrl+3 | History |
-| Ctrl+4 | Settings page |
-| Ctrl+5 | Analytics |
-| Ctrl+6 | Calendar |
-| Ctrl+7 | About & Support |
-| Enter | Open the task planning dialog while focused in a task-entry field; Enter again confirms the selected action |
+| `Space` | Start or pause the current timer |
+| `R` | Reset the current timer |
+| `S` | Skip the current focus or break mode |
+| `Ctrl+N` | Open Tasks and focus the new-task field |
+| `Ctrl+E` | Edit the selected task |
+| `Ctrl+Shift+S` | Start the selected task |
+| `Ctrl+Shift+T` | Toggle light and dark mode |
+| `Ctrl+Shift+M` | Minimize FocusFlow |
+| `Ctrl+,` | Open timer settings |
+| `F1` | Open the in-app shortcut reference |
+| `F5` | Refresh task, history, analytics, and calendar data |
+| `Ctrl+1` | Dashboard |
+| `Ctrl+2` | Tasks |
+| `Ctrl+3` | History |
+| `Ctrl+4` | Settings |
+| `Ctrl+5` | Analytics |
+| `Ctrl+6` | Calendar |
+| `Ctrl+7` | About & Support |
+| `Enter` | Open the task-planning dialog from a task-entry field; press again to confirm |
 
-## Controls
+## Privacy and local data
 
-| Control | Action |
+FocusFlow stores application data locally at:
+
+```text
+%LOCALAPPDATA%\FocusFlow\focusflow.db
+```
+
+The local SQLite database contains tasks, settings, session history, and onboarding information. No account is required, and the core timer does not depend on a network service.
+
+The optional About & Support buttons open external pages in the default browser only when the user chooses them.
+
+## Run from source
+
+The packaged installer is recommended for everyday use. Developers can run the project from source on Windows with Python 3.11 or later.
+
+```powershell
+python -m pip install -r requirements.txt
+python focusflow_qt.py
+```
+
+The repository also includes `Run FocusFlow.bat`. When `dist\FocusFlow.exe` exists, the launcher opens the packaged application; otherwise it falls back to the available Python runtime and starts the Qt source edition.
+
+The main files are:
+
+| File | Role |
 |---|---|
-| Start | Begin or resume the current timer |
-| Pause | Pause the current timer |
-| Reset | Reset the current session to its full duration |
-| Skip | Move to the next mode without recording the current session |
-| Start selected | Select the highlighted task and start a focus session |
-| Edit | Change the selected task’s title, plan, duration, priority, status, or due date |
-| Delete | Archive the selected task from the visible task list |
+| `focusflow_qt.py` | Main PySide6 application and modern interface |
+| `focusflow.py` | Local database, data model, and compatibility module |
+| `FocusFlowInstaller.py` | Per-user installer source |
+| `FocusFlowUninstaller.py` | Data-aware Windows uninstaller source |
+| `focusflow_logo.svg` | FocusFlow branding asset |
+| `focusflow_qt_smoke_test.py` | UI and integration verification test |
 
-## Notes
+## Build the Windows application
 
-The app uses Python’s standard library, Tkinter, SQLite, and Windows `winsound`; charts are drawn with native Tk Canvas controls, so no data-visualization package is required.
+The packaged Windows files are generated locally with PyInstaller. A typical application build is:
 
-## Modern glossy interface
+```powershell
+python -m PyInstaller --noconfirm --clean --onefile --windowed `
+  --name FocusFlow focusflow_qt.py
+```
 
-The current release includes a cohesive glossy visual system across the entire desktop application. It uses layered glass-like surfaces, soft borders, an accent glow rail, an elevated hero timer, inset input fields, polished navigation states, stronger typography, and improved table and progress-bar spacing.
+The installer and uninstaller are packaged separately from their corresponding Python entry points. The final distribution should be tested on a clean Windows account or isolated user-data directory before release.
 
-The light theme remains the default. Dark mode uses the same design language with deeper layered surfaces and accessible accent contrast. The theme toggle in the header continues to persist the selected appearance across launches. The redesign is applied consistently to Dashboard, Tasks, History, Analytics, Calendar, Settings, task editing dialogs, timer settings, and system controls.
+## Developer credit
 
-All existing timer, recovery, toast, tray, task, history, analytics, and calendar behavior remains unchanged.
+<div align="center">
+  <h3>Made with care by Jasim Uddin</h3>
+  <p>FocusFlow is an independent productivity project created to make focused work feel calmer, clearer, and easier to sustain.</p>
+  <p>
+    <a href="https://bio.link/jasimuddin"><img src="https://cdn.simpleicons.org/linktree/39E09B" alt="Jasim Uddin's links" height="30"></a>
+    &nbsp;&nbsp;
+    <a href="https://buymeacoffee.com/jasimuddin"><img src="https://cdn.simpleicons.org/buymeacoffee/FFDD00" alt="Support Jasim Uddin" height="30"></a>
+  </p>
+  <p><sub>Explore the developer's links or support continued development if FocusFlow helps your work.</sub></p>
+</div>
 
-## PySide6 modern interface edition
+## Support the project
 
-The project now includes a custom PySide6 visual layer in `focusflow_qt.py`. This edition uses a frameless rounded application shell, layered glass-like cards, custom shadows, gradient background lighting, glowing accent colors, a polished sidebar, custom navigation buttons, a large timer hero, modern tables, inset controls, and native canvas charts.
+If FocusFlow helps you protect your attention or build a better routine, support is appreciated but never required.
 
-The primary `Run FocusFlow.bat` launcher opens `dist\\FocusFlow.exe` when the packaged build exists. During development it falls back to the detected Python runtime and opens `focusflow_qt.py` directly. The original Tkinter source remains available in `focusflow.py` as a compatibility and database module, while the Qt edition reuses the same local SQLite database and retains the existing timer, recovery, task, history, analytics, calendar, notification, tray, keyboard-shortcut, and CSV-export behavior.
+- **Support development:** [Buy Me a Coffee](https://buymeacoffee.com/jasimuddin)
+- **Developer links and profiles:** [bio.link/jasimuddin](https://bio.link/jasimuddin)
+- **Questions and bugs:** [Open a GitHub Issue](https://github.com/jasimuddinevan/time-tracker-for-pc/issues)
 
+## Contributing
 
-## Developer credit and support
+Suggestions, bug reports, documentation improvements, and pull requests are welcome. Please describe the problem clearly, include reproducible steps where possible, and keep changes focused on one improvement at a time.
 
-FocusFlow is designed and developed by **Jasim Uddin**. The project is shared openly so Windows users can use, study, improve, and adapt it for personal productivity.
+## License
 
-If FocusFlow is useful to you, you can support continued development or find the developer’s other links here:
+FocusFlow is released under the [MIT License](LICENSE). You are free to use, study, modify, and redistribute the project in accordance with that license.
 
-<p>
-  <a href="https://buymeacoffee.com/jasimuddin"><img src="https://cdn.simpleicons.org/buymeacoffee/FFDD00" alt="Support Jasim Uddin on Buy Me a Coffee" height="32"></a>
-  &nbsp;
-  <a href="https://bio.link/jasimuddin"><img src="https://cdn.simpleicons.org/linktree/39E09B" alt="Visit Jasim Uddin's links" height="32"></a>
-</p>
+## Links
 
-The project is released under the **MIT License**. Contributions, bug reports, design suggestions, and improvements are welcome through GitHub Issues and Pull Requests.
-
-## Public repository
-
-The source code is available at [github.com/jasimuddinevan/time-tracker-for-pc](https://github.com/jasimuddinevan/time-tracker-for-pc). The repository is intended for the source and development files. Windows users who want the packaged application should use `FocusFlowSetup.exe` from a published distribution archive or build the application locally.
+- [Download FocusFlowSetup.exe](https://github.com/jasimuddinevan/time-tracker-for-pc/releases/download/windows-apps/FocusFlowSetup.exe)
+- [FocusFlow GitHub repository](https://github.com/jasimuddinevan/time-tracker-for-pc)
+- [Buy Me a Coffee — Jasim Uddin](https://buymeacoffee.com/jasimuddin)
+- [Developer links — Jasim Uddin](https://bio.link/jasimuddin)
