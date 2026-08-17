@@ -1,0 +1,29 @@
+# Python cache and local environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Local application data and databases
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Windows build outputs and distribution archives
+dist/
+build/
+*.exe
+*.zip
+
+# IDE and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary test artifacts
+*.tmp
+*.bak
