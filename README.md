@@ -20,10 +20,10 @@
 </div>
 
 <p align="center">
-  <img src="focusflow-dashboard.png" alt="FocusFlow Dashboard showing the personalized greeting, task list, focus timer, daily progress, and recent activity" width="100%">
+  <img src="focusflow-dashboard.png" alt="FocusFlow Dashboard showing the personalized greeting, task list, focus timer, daily progress, and recent activity" width="96%">
 </p>
 
-<p align="center"><em>A calm, modern workspace for choosing one task and finishing the next small step.</em></p>
+<p align="center"><em>A focused desktop workspace for choosing one task, protecting attention, and finishing the next small step.</em></p>
 
 ## What is FocusFlow?
 
