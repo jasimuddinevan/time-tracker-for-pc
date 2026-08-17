@@ -2,6 +2,7 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 from PySide6.QtCore import Qt, QTimer
@@ -196,7 +197,18 @@ class InstallerWindow(QMainWindow):
             self.progress.setValue(20)
             destination.mkdir(parents=True, exist_ok=True)
             target = destination / APP_EXE
-            shutil.copy2(source, target)
+            subprocess.run(["taskkill", "/IM", APP_EXE, "/F", "/T"], capture_output=True, text=True, check=False)
+            copy_error = None
+            for _attempt in range(6):
+                try:
+                    shutil.copy2(source, target)
+                    copy_error = None
+                    break
+                except PermissionError as error:
+                    copy_error = error
+                    time.sleep(0.5)
+            if copy_error is not None:
+                raise copy_error
             uninstaller_source = bundle_path(UNINSTALLER_EXE)
             if not uninstaller_source.exists():
                 raise FileNotFoundError("The bundled FocusFlow uninstaller could not be found.")
